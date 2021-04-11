@@ -30,9 +30,9 @@ while True:
         # Receive the data in small chunks and retransmit it
         while True:
             try:
-                data = connection.recv(16)
-                print(sys.stderr, 'received "%s"' % data)
+                data = connection.recv(1024)
                 if data:
+                    print(sys.stderr, 'received "%s"' % data)
                     print(sys.stderr, 'sending data back to the client')
                     connection.sendall(data)
                 else:
