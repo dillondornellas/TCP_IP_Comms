@@ -42,5 +42,5 @@ while True:
                 break
             
     finally:
-        # Clean up the connection
+        # Clear the connection
         connection.close()
