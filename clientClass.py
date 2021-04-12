@@ -7,7 +7,6 @@ class tcpClient:
         self.local_hostname = socket.gethostname()
         self.ip_address = socket.gethostbyname(self.local_hostname)
         self.port = 10000
-        self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.initConnection()
         # create containers for param codes
         self.m11 = []
@@ -17,6 +16,7 @@ class tcpClient:
         self.holder = ''
 
     def initConnection(self):  
+        self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_address = (self.ip_address, self.port)
         try:
             # connect to the server
@@ -108,17 +108,17 @@ client1 = tcpClient()
 
 # send first data packet
 client1.sendData(dat1)
-#time.sleep(1)
+time.sleep(1)
 client1.receiveData()
 
 # send second data packet
 client1.sendData(dat2)
-#time.sleep(1)
+time.sleep(1)
 client1.receiveData()
 
 # send third data packet
 client1.sendData(dat3)
-#time.sleep(1)
+time.sleep(1)
 client1.receiveData()
 
 # printing results
